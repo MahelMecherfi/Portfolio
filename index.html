@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Mahel Mecherfi | Interaction Designer & Creative Technologist</title>
+    <meta name="description"
+        content="Portfolio de Mahel Mecherfi, étudiant en 2e année de master d'ingénieur à l'ESILV (spécialité Master of Science). Design d'interaction, installations immersives, Unity, IA générative et prototypage.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600&family=Syne:wght@600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body id="page-body">
+
+    <!-- SVG Gooey Melt Filter (Permet la fusion organique et l'étirement liquide) -->
+    <svg class="melt-svg-filter" aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;">
+        <defs>
+            <filter id="gooey-melt">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="15" result="blur" />
+                <feColorMatrix in="blur" mode="matrix" values="
+                    1 0 0 0 0  
+                    0 1 0 0 0  
+                    0 0 1 0 0  
+                    0 0 0 28 -10" result="gooey" />
+                <feBlend in="SourceGraphic" in2="gooey" />
+            </filter>
+        </defs>
+    </svg>
+
+    <!-- Liquid Melting Canvas (Traînée fluide qui fond et fusionne sous la souris) -->
+    <canvas id="melting-canvas" class="melting-canvas" aria-hidden="true"></canvas>
+
+    <!-- Liquid Molten Spotlight (Halo de chaleur diffus) -->
+    <div id="molten-spotlight" class="molten-spotlight" aria-hidden="true"></div>
+
+    <!-- Warm Blurred Aurora Gradients (Charlie Osborne style: sunset / amber / terracotta) -->
+    <div class="ambient-canvas" aria-hidden="true">
+        <div class="ambient-orb orb-warm-1"></div>
+        <div class="ambient-orb orb-warm-2"></div>
+        <div class="ambient-orb orb-warm-3"></div>
+        <div class="noise-overlay"></div>
+    </div>
+
+    <!-- Minimal Header with Mobile Navigation Drawer -->
+    <header id="main-header" class="site-header">
+        <div class="header-inner">
+            <a href="#hero" class="brand-link">
+                <span class="status-dot"></span>
+                <span class="brand-name">Mahel Mecherfi</span>
+                <span class="brand-sub">ESILV école d'ingénieurs</span>
+            </a>
+
+            <nav id="nav" class="nav-menu" aria-label="Navigation principale">
+                <a href="#about-manifesto" class="nav-link">Manifeste</a>
+                <a href="#projects-section" class="nav-link">Projets</a>
+                <a href="#contact" class="nav-link">Contact</a>
+
+                <!-- Mobile Navigation Drawer Extra Content -->
+                <div class="nav-mobile-footer">
+                    <a href="content/CVFR.pdf" target="_blank" rel="noopener"
+                        class="btn-mlnk btn-warm-primary mobile-cv-btn">
+                        <span class="btn-text">Consulter le CV (PDF)</span>
+                        <span class="btn-indicator">↗</span>
+                    </a>
+                    <div class="nav-mobile-socials">
+                        <a href="https://www.linkedin.com/in/mahel-yasmine-mecherfi-39860534b/" target="_blank"
+                            rel="noopener">LinkedIn ↗</a>
+                        <span class="nav-mobile-sep">•</span>
+                        <a href="https://www.esilv.fr/" target="_blank" rel="noopener">ESILV ↗</a>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="header-actions">
+                <a href="content/CVFR.pdf" target="_blank" rel="noopener" class="btn-mlnk header-btn"
+                    id="header-cv-link">
+                    <span class="btn-text">CV (PDF)</span>
+                    <span class="btn-indicator">↗</span>
+                </a>
+            </div>
+
+            <!-- Hamburger Button for Mobile -->
+            <button id="mobile-menu-toggle" class="mobile-menu-toggle" aria-label="Ouvrir le menu"
+                aria-expanded="false">
+                <span class="hamburger-bar"></span>
+                <span class="hamburger-bar"></span>
+            </button>
+        </div>
+    </header>
+
+    <main id="main-content">
+
+        <!-- MINIMALIST EDITORIAL HERO -->
+        <section id="hero" class="hero-section">
+            <div class="hero-container">
+                <div class="hero-header-meta">
+                    <span class="meta-tag">Design d'interaction & Technologies Créatives</span>
+                    <span class="meta-dot">•</span>
+                    <span class="meta-location">Paris, FR</span>
+                </div>
+
+                <div class="hero-grid">
+                    <div class="hero-title-box">
+                        <h1 class="hero-title">
+                            Concevoir des<br>
+                            interfaces<br>
+                            <span class="text-gradient">sensorielles &<br>
+                                immersives.</span>
+                        </h1>
+                    </div>
+
+                    <div class="hero-content-col">
+                        <p class="hero-subtext">
+                            Étudiant en <strong>2e année de master d'ingénieur</strong>, spécialité <strong>Master of
+                                Science</strong> à l'<strong>ESILV</strong> (école d'ingénieurs).
+                            J'explore la convergence entre scénographie physique, moteur temps réel
+                            <strong>Unity</strong>,
+                            interfaces tactiles et <strong>intelligence artificielle</strong> générative.
+                        </p>
+
+                        <div class="hero-cta-group">
+                            <a href="#projects-section" class="btn-mlnk btn-warm-primary" id="hero-explore-btn">
+                                <span class="btn-text">Découvrir les travaux</span>
+                                <span class="btn-indicator">↓</span>
+                            </a>
+                            <a href="https://www.linkedin.com/in/mahel-yasmine-mecherfi-39860534b/" target="_blank"
+                                rel="noopener" class="btn-mlnk btn-warm-ghost" id="hero-linkedin-btn">
+                                <span class="btn-text">LinkedIn</span>
+                                <span class="btn-indicator">↗</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- YAROS.ME STYLE: SCROLL TEXT REVEAL (Refined & Airy) -->
+        <section id="about-manifesto" class="manifesto-section">
+            <div class="section-container">
+                <div class="section-tag">
+                    <span>01 / MANIFESTE</span>
+                </div>
+
+                <div class="scroll-text-container" id="scroll-text-reveal">
+                    <p class="scroll-paragraph">
+                        <span class="reveal-word">À</span>
+                        <span class="reveal-word">la</span>
+                        <span class="reveal-word">convergence</span>
+                        <span class="reveal-word">du</span>
+                        <span class="reveal-word highlight-warm">software,</span>
+                        <span class="reveal-word">du</span>
+                        <span class="reveal-word highlight-warm">hardware</span>
+                        <span class="reveal-word">et</span>
+                        <span class="reveal-word">de</span>
+                        <span class="reveal-word highlight-amber">l'intelligence</span>
+                        <span class="reveal-word highlight-amber">artificielle,</span>
+                        <span class="reveal-word">je</span>
+                        <span class="reveal-word">conçois</span>
+                        <span class="reveal-word">des</span>
+                        <span class="reveal-word">systèmes</span>
+                        <span class="reveal-word">interactifs</span>
+                        <span class="reveal-word">et</span>
+                        <span class="reveal-word">immersifs</span>
+                        <span class="reveal-word">de</span>
+                        <span class="reveal-word">pointe.</span>
+                    </p>
+                    <p class="scroll-paragraph">
+                        <span class="reveal-word">Du</span>
+                        <span class="reveal-word highlight-warm">développement</span>
+                        <span class="reveal-word highlight-warm">temps</span>
+                        <span class="reveal-word highlight-warm">réel</span>
+                        <span class="reveal-word">à</span>
+                        <span class="reveal-word">l'intégration</span>
+                        <span class="reveal-word">de</span>
+                        <span class="reveal-word highlight-amber">capteurs</span>
+                        <span class="reveal-word highlight-amber">physiques,</span>
+                        <span class="reveal-word">je</span>
+                        <span class="reveal-word">bâtis</span>
+                        <span class="reveal-word">des</span>
+                        <span class="reveal-word">architectures</span>
+                        <span class="reveal-word">techniques</span>
+                        <span class="reveal-word">robustes</span>
+                        <span class="reveal-word">au</span>
+                        <span class="reveal-word">service</span>
+                        <span class="reveal-word">des</span>
+                        <span class="reveal-word">défis</span>
+                        <span class="reveal-word">de</span>
+                        <span class="reveal-word">demain.</span>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROJECTS SHOWCASE SECTION (Minimalist Cinematic Layout - Massimo Nicolaci & Karl.works) -->
+        <section id="projects-section" class="projects-section">
+            <div class="section-container">
+
+                <div class="projects-section-header">
+                    <div>
+                        <span class="section-tag">02 / PROJETS SÉLECTIONNÉS</span>
+                        <h2 class="section-title">Travaux & Explorations</h2>
+                    </div>
+                </div>
+
+                <!-- Clean Project Cards -->
+                <div id="projects-cards-container" class="projects-list">
+
+                    <!-- PROJECT 1: INTERACTIVE WALL POUILLY-FUMÉ -->
+                    <article class="project-entry" data-project-id="wall">
+                        <div class="project-media-container" data-project="wall" title="Cliquer pour ouvrir la galerie">
+                            <div class="media-tilt-wrapper">
+                                <img src="content/interactive_wall.png"
+                                    alt="Mur interactif Musée Pouilly-Fumé : Vue d'ensemble" class="project-image"
+                                    loading="lazy">
+                                <div class="media-badge">
+                                    <span>Défiler la galerie [ 4 ] ↗</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="project-info">
+                            <div class="project-meta-line">
+                                <span class="project-num">01</span>
+                                <span class="project-category">Installation Numérique • 2024</span>
+                                <span class="project-badge-soft">Musée Pouilly-Fumé</span>
+                            </div>
+
+                            <h3 class="project-heading">Mur Interactif & Scénographie Viticole</h3>
+
+                            <p class="project-text">
+                                Prototype Unity pour un mur interactif monumental de <strong>2 × 6 mètres</strong>
+                                plongeant les visiteurs dans les quatre saisons de la viticulture.
+                                Développement du système physique de bulles interactives en C# et synchronisation temps
+                                réel
+                                en <strong>OSC avec MadMapper</strong> pour orchestrer les visuels et le son spatialisé.
+                            </p>
+
+                            <div class="project-tags">
+                                <span>Unity</span>
+                                <span>C#</span>
+                                <span>MadMapper</span>
+                                <span>OSC</span>
+                                <span>Installation 12m²</span>
+                            </div>
+
+                            <div class="project-actions">
+                                <button class="btn-mlnk btn-warm-primary open-gallery-btn" data-project="wall">
+                                    <span class="btn-text">Explorer les visuels</span>
+                                    <span class="btn-indicator">⊞</span>
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+
+
+                    <!-- PROJECT 2: DREAMLOG -->
+                    <article class="project-entry" data-project-id="dreamlog">
+                        <div class="project-media-container" data-project="dreamlog"
+                            title="Cliquer pour ouvrir la galerie">
+                            <div class="media-tilt-wrapper">
+                                <img src="content/Dreamlog.png"
+                                    alt="DreamLog : Interface de journal de rêves généré par IA" class="project-image"
+                                    loading="lazy">
+                                <div class="media-badge">
+                                    <span>Voir les images & vidéo [ 8 ] ↗</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="project-info">
+                            <div class="project-meta-line">
+                                <span class="project-num">02</span>
+                                <span class="project-category">IA Générative & UX • 2024</span>
+                                <span class="project-badge-soft">Projet R&D</span>
+                            </div>
+
+                            <h3 class="project-heading">DreamLog : Journal Onirique Augmenté</h3>
+
+                            <p class="project-text">
+                                Journal intime interactif qui convertit des récits de rêves en visuels métaphoriques
+                                pour enrichir l'introspection personnelle. Analyse des symboles et des émotions par IA
+                                afin de révéler les motifs récurrents au fil du temps.
+                            </p>
+
+                            <div class="project-tags">
+                                <span>Generative AI</span>
+                                <span>UI / UX</span>
+                                <span>Storytelling</span>
+                                <span>Video Demo</span>
+                            </div>
+
+                            <div class="project-actions">
+                                <button class="btn-mlnk btn-warm-primary open-gallery-btn" data-project="dreamlog">
+                                    <span class="btn-text">Ouvrir la galerie & vidéo</span>
+                                    <span class="btn-indicator">▶</span>
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+
+
+                    <!-- PROJECT 3: BRIGHTSIGN APPLICATION -->
+                    <article class="project-entry" data-project-id="brightsign">
+                        <div class="project-media-container" data-project="brightsign"
+                            title="Cliquer pour ouvrir la galerie">
+                            <div class="media-tilt-wrapper">
+                                <img src="content/brightsign.png"
+                                    alt="Borne tactile interactive BrightSign au Musée Pouilly-Fumé"
+                                    class="project-image" loading="lazy">
+                                <div class="media-badge">
+                                    <span>Défiler la galerie [ 4 ] ↗</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="project-info">
+                            <div class="project-meta-line">
+                                <span class="project-num">03</span>
+                                <span class="project-category">Interface Tactile & Web • 2024</span>
+                                <span class="project-badge-soft">Musée Pouilly-Fumé</span>
+                            </div>
+
+                            <h3 class="project-heading">Borne Interactive pour Interviews</h3>
+
+                            <p class="project-text">
+                                Application tactile bilingue (FR/EN) présentant 9 entretiens avec des vignerons locaux.
+                                Du prototypage sous Figma à l'intégration web en <strong>HTML/CSS/JavaScript</strong>,
+                                optimisée et déployée sur boîtier matériel <strong>BrightSign LS425</strong>.
+                            </p>
+
+                            <div class="project-tags">
+                                <span>HTML5 / JS</span>
+                                <span>Figma</span>
+                                <span>BrightSign LS425</span>
+                                <span>Muséographie</span>
+                            </div>
+
+                            <div class="project-actions">
+                                <button class="btn-mlnk btn-warm-primary open-gallery-btn" data-project="brightsign">
+                                    <span class="btn-text">Voir les captures</span>
+                                    <span class="btn-indicator">⊞</span>
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+
+
+                    <!-- PROJECT 4: UNITY HCI ISLAND -->
+                    <article class="project-entry" data-project-id="unity">
+                        <div class="project-media-container" data-project="unity"
+                            title="Cliquer pour ouvrir la galerie">
+                            <div class="media-tilt-wrapper">
+                                <img src="content/unity_hbb1.png" alt="Environnement insulaire 3D sous Unity"
+                                    class="project-image" loading="lazy">
+                                <div class="media-badge">
+                                    <span>Défiler la galerie [ 2 ] ↗</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="project-info">
+                            <div class="project-meta-line">
+                                <span class="project-num">04</span>
+                                <span class="project-category">Environnement 3D & HCI • 2024</span>
+                                <span class="project-badge-soft">Projet ESILV</span>
+                            </div>
+
+                            <h3 class="project-heading">Survie Insulaire : Monde Interactif Unity</h3>
+
+                            <p class="project-text">
+                                Expérience d'immersion régie par un cycle jour/nuit dynamique.
+                                Le joueur rescapé sur une île isolée doit entretenir son feu de camp pour repousser
+                                les menaces nocturnes, explorant les mécaniques d'engagement émotionnel et d'ambiance
+                                sonore.
+                            </p>
+
+                            <div class="project-tags">
+                                <span>Unity 3D</span>
+                                <span>C#</span>
+                                <span>Cycle Jour/Nuit</span>
+                                <span>Audio Spatialisé</span>
+                            </div>
+
+                            <div class="project-actions">
+                                <a href="https://www.youtube.com/watch?v=n3ON68Pl9R4" target="_blank" rel="noopener"
+                                    class="btn-mlnk btn-warm-primary" id="btn-yt-unity">
+                                    <span class="btn-text">Vidéo YouTube</span>
+                                    <span class="btn-indicator">↗</span>
+                                </a>
+                                <button class="btn-mlnk btn-warm-ghost open-gallery-btn" data-project="unity">
+                                    <span class="btn-text">Photos</span>
+                                    <span class="btn-indicator">⊞</span>
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+
+
+                    <!-- PROJECT 5: KICKSTARTER PASTE SCRAPER -->
+                    <article class="project-entry" data-project-id="kickstarter">
+                        <div class="project-media-container" data-project="kickstarter"
+                            title="Cliquer pour ouvrir la galerie">
+                            <div class="media-tilt-wrapper">
+                                <img src="content/kickstarter1.png" alt="Paste Scraper : Outil éco-responsable"
+                                    class="project-image" loading="lazy">
+                                <div class="media-badge">
+                                    <span>Défiler la galerie [ 2 ] ↗</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="project-info">
+                            <div class="project-meta-line">
+                                <span class="project-num">05</span>
+                                <span class="project-category">Design Produit & Éco-conception • 2024</span>
+                                <span class="project-badge-soft">Kickstarter</span>
+                            </div>
+
+                            <h3 class="project-heading">Paste Scraper : Réduction du Gaspillage</h3>
+
+                            <p class="project-text">
+                                Prototypage et design d'un outil éco-conçu en matériaux renouvelables permettant de
+                                vider
+                                intégralement les tubes de dentifrice et contenants semi-rigides.
+                                Préparation d'une campagne de lancement sur Kickstarter.
+                            </p>
+
+                            <div class="project-tags">
+                                <span>Design Produit</span>
+                                <span>Éco-conception</span>
+                                <span>Prototypage Physique</span>
+                                <span>Kickstarter</span>
+                            </div>
+
+                            <div class="project-actions">
+                                <a href="https://www.kickstarter.com/login?then=%2Fprojects%2F336130196%2F1897693405%2Fedit%2Fpreview%3Fref%3Dproject_build"
+                                    target="_blank" rel="noopener" class="btn-mlnk btn-warm-primary"
+                                    id="btn-kickstarter-link">
+                                    <span class="btn-text">Lien Kickstarter</span>
+                                    <span class="btn-indicator">↗</span>
+                                </a>
+                                <button class="btn-mlnk btn-warm-ghost open-gallery-btn" data-project="kickstarter">
+                                    <span class="btn-text">Photos</span>
+                                    <span class="btn-indicator">⊞</span>
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- MINIMALIST CONTACT FOOTER -->
+        <footer id="contact" class="site-footer">
+            <div class="section-container">
+                <div class="footer-inner">
+                    <div class="footer-left">
+                        <span class="section-tag">03 / CONTACT</span>
+                        <h2 class="footer-title">
+                            L'innovation technique <br>
+                            <span class="text-gradient">au service du monde de demain.</span>
+                        </h2>
+                        <p class="footer-desc">
+                            Déterminée à être actrice et active face aux grands enjeux technologiques de demain, je
+                            mobilise l'ingénierie et le design d'interaction pour concevoir des solutions à fort impact
+                            : <strong>santé & technologies médicales</strong>, systèmes interactifs immersifs et progrès
+                            durable.
+                        </p>
+                    </div>
+
+                    <div class="footer-links-group">
+                        <a href="https://www.linkedin.com/in/mahel-yasmine-mecherfi-39860534b/" target="_blank"
+                            rel="noopener" class="footer-link" id="link-footer-linkedin">
+                            <span>LinkedIn</span>
+                            <span class="link-arrow">↗</span>
+                        </a>
+                        <a href="https://www.esilv.fr/" target="_blank" rel="noopener" class="footer-link"
+                            id="link-footer-esilv">
+                            <span>ESILV (École d'ingénieurs)</span>
+                            <span class="link-arrow">↗</span>
+                        </a>
+                        <a href="content/CVFR.pdf" target="_blank" rel="noopener" class="footer-link"
+                            id="link-footer-cv">
+                            <span>Curriculum Vitae (PDF)</span>
+                            <span class="link-arrow">↓</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-bottom">
+                    <p>© 2026 / 2027 Mahel Mecherfi</p>
+                    <a href="#hero" class="back-link">Haut de page ↑</a>
+                </div>
+            </div>
+        </footer>
+
+    </main>
+
+    <!-- READYMAG IMAGE STACK MODAL (Photos qui défilent au clic) -->
+    <div id="gallery-modal" class="gallery-modal" aria-hidden="true" role="dialog" aria-label="Galerie de projet">
+        <div class="modal-backdrop" id="modal-backdrop"></div>
+
+        <div class="modal-container">
+            <div class="modal-header">
+                <div class="modal-title-group">
+                    <span id="modal-project-idx" class="modal-idx">01</span>
+                    <h3 id="modal-project-title" class="modal-title">Titre du Projet</h3>
+                    <span id="modal-media-counter" class="modal-counter">01 / 04</span>
+                </div>
+
+                <div class="modal-controls">
+                    <button id="modal-prev-btn" class="modal-nav-btn" aria-label="Image précédente">←</button>
+                    <button id="modal-next-btn" class="modal-nav-btn" aria-label="Image suivante">→</button>
+                    <button id="modal-close-btn" class="modal-nav-btn btn-close-modal" aria-label="Fermer">✕</button>
+                </div>
+            </div>
+
+            <div class="modal-stage" id="modal-stage" title="Cliquer n'importe où pour défiler">
+                <div class="modal-media-wrapper">
+                    <img id="modal-active-img" src="" alt="Visuel agrandi" class="modal-active-media">
+                    <video id="modal-active-video" controls autoplay playsinline class="modal-active-media modal-video"
+                        style="display: none;"></video>
+                </div>
+
+                <div class="modal-hint">
+                    CLIQUEZ POUR DÉFILER →
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <div id="modal-thumbnails" class="modal-thumbnails-track"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+</body>
+
+</html>
