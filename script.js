@@ -388,6 +388,34 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let currentProjectId = null;
     let currentMediaIndex = 0;
+    const detailModal = document.getElementById('project-detail-modal');
+    const detailBackdrop = document.getElementById('detail-backdrop');
+    const detailCloseBtn = document.getElementById('detail-close-btn');
+    const detailOpenGallery = document.getElementById('detail-open-gallery');
+
+    function openProjectDetails(projectId) {
+        const project = projectsData[projectId];
+        if (!project || !detailModal) return;
+
+        currentProjectId = projectId;
+        document.getElementById('detail-project-code').textContent = project.code;
+        document.getElementById('detail-project-title').textContent = project.title;
+        document.getElementById('detail-project-description').textContent = project.description;
+        document.getElementById('detail-project-tech').textContent = project.tech;
+        document.getElementById('detail-project-challenge').textContent = project.challenge;
+
+        detailModal.classList.add('is-open');
+        detailModal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+        detailCloseBtn.focus();
+    }
+
+    function closeProjectDetails() {
+        if (!detailModal) return;
+        detailModal.classList.remove('is-open');
+        detailModal.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+    }
 
     function openGallery(projectId, startIndex = 0) {
         const project = projectsData[projectId];
@@ -499,7 +527,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Attach open gallery listeners to all triggers
-    const galleryTriggers = document.querySelectorAll('.open-gallery-btn, .project-media-container, .project-media-viewport');
+    const galleryTriggers = document.querySelectorAll('.open-gallery-btn, .project-media-viewport');
     galleryTriggers.forEach(trigger => {
         trigger.addEventListener('click', (e) => {
             // Avoid conflict if clicking a direct link inside
@@ -523,16 +551,26 @@ document.addEventListener('DOMContentLoaded', () => {
         card.addEventListener('click', (e) => {
             if (e.target.closest('a, button')) return;
             const projectId = card.getAttribute('data-project-id');
-            if (projectId && projectsData[projectId]) openGallery(projectId, 0);
+            if (projectId && projectsData[projectId]) openProjectDetails(projectId);
         });
 
         card.addEventListener('keydown', (e) => {
             if (e.key !== 'Enter' && e.key !== ' ') return;
             e.preventDefault();
             const projectId = card.getAttribute('data-project-id');
-            if (projectId && projectsData[projectId]) openGallery(projectId, 0);
+            if (projectId && projectsData[projectId]) openProjectDetails(projectId);
         });
     });
+
+    if (detailCloseBtn) detailCloseBtn.addEventListener('click', closeProjectDetails);
+    if (detailBackdrop) detailBackdrop.addEventListener('click', closeProjectDetails);
+    if (detailOpenGallery) {
+        detailOpenGallery.addEventListener('click', () => {
+            if (!currentProjectId) return;
+            closeProjectDetails();
+            openGallery(currentProjectId, 0);
+        });
+    }
 
     // Readymag feature: Clicking inside the stage advances to next photo!
     if (modalStage) {
@@ -586,6 +624,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Keyboard controls
     window.addEventListener('keydown', (e) => {
+        if (detailModal && detailModal.classList.contains('is-open') && e.key === 'Escape') {
+            closeProjectDetails();
+            return;
+        }
         if (!galleryModal.classList.contains('is-open')) return;
 
         if (e.key === 'Escape') {

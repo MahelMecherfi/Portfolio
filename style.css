@@ -1245,6 +1245,104 @@ button {
     color: var(--warm-peach);
 }
 
+.project-detail-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 10001;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.28s ease;
+}
+
+.project-detail-modal.is-open {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.project-detail-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(18, 15, 13, 0.82);
+    backdrop-filter: blur(18px);
+}
+
+.project-detail-window {
+    position: relative;
+    z-index: 2;
+    width: min(760px, calc(100vw - 2rem));
+    max-height: 88vh;
+    overflow-y: auto;
+    padding: 2.25rem;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 16px;
+    background: #1a1715;
+    color: #fff;
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.38);
+}
+
+.project-detail-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 38px;
+    height: 38px;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 50%;
+    color: #fff;
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.project-detail-heading {
+    padding-right: 3.5rem;
+    margin-bottom: 2rem;
+}
+
+.project-detail-code,
+.project-detail-label {
+    font-family: var(--font-mono);
+    color: var(--warm-peach);
+    font-size: 0.68rem;
+    letter-spacing: 0.08em;
+}
+
+.project-detail-heading h3 {
+    margin: 0.55rem 0 0;
+    font-family: var(--font-heading);
+    font-size: clamp(1.7rem, 4vw, 2.8rem);
+    line-height: 1.05;
+}
+
+.project-detail-content {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 1.5rem;
+}
+
+.project-detail-description {
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.project-detail-description:first-child {
+    grid-column: 1 / -1;
+}
+
+.project-detail-description p {
+    margin: 0.55rem 0 0;
+    color: rgba(255, 255, 255, 0.78);
+    line-height: 1.65;
+    font-size: 0.92rem;
+}
+
+.project-detail-actions {
+    display: flex;
+    gap: 0.75rem;
+    margin-top: 2rem;
+}
+
 .modal-thumbnails-track {
     display: flex;
     justify-content: center;
@@ -1903,6 +2001,21 @@ body {
     .modal-github-link {
         justify-self: start;
         text-align: center;
+    }
+
+    .project-detail-window {
+        width: calc(100vw - 1rem);
+        max-height: 92dvh;
+        padding: 1.25rem;
+    }
+
+    .project-detail-content {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .project-detail-actions {
+        flex-direction: column;
     }
 
     .modal-thumbnails-track {

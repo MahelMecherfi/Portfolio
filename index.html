@@ -67,7 +67,7 @@
                 <div class="nav-mobile-footer">
                     <a href="content/CVFR.pdf" target="_blank" rel="noopener"
                         class="btn-mlnk btn-warm-primary mobile-cv-btn">
-                        <span class="btn-text">Consulter le CV (PDF)</span>
+                        <span class="btn-text">Consulter le CV</span>
                         <span class="btn-indicator">↗</span>
                     </a>
                     <div class="nav-mobile-socials">
@@ -85,7 +85,7 @@
             <div class="header-actions">
                 <a href="content/CVFR.pdf" target="_blank" rel="noopener" class="btn-mlnk header-btn"
                     id="header-cv-link">
-                    <span class="btn-text">CV (PDF)</span>
+                    <span class="btn-text">CV</span>
                     <span class="btn-indicator">↗</span>
                 </a>
             </div>
@@ -503,7 +503,7 @@
                         </a>
                         <a href="content/CVFR.pdf" target="_blank" rel="noopener" class="footer-link"
                             id="link-footer-cv">
-                            <span>Curriculum Vitae (PDF)</span>
+                            <span>Curriculum Vitae</span>
                             <span class="link-arrow">↓</span>
                         </a>
                     </div>
@@ -572,6 +572,43 @@
 
             <div class="modal-footer">
                 <div id="modal-thumbnails" class="modal-thumbnails-track"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="project-detail-modal" class="project-detail-modal" aria-hidden="true" role="dialog"
+        aria-modal="true" aria-labelledby="detail-project-title">
+        <div class="project-detail-backdrop" id="detail-backdrop"></div>
+        <div class="project-detail-window">
+            <button type="button" class="project-detail-close" id="detail-close-btn" aria-label="Fermer">✕</button>
+            <div class="project-detail-heading">
+                <span id="detail-project-code" class="project-detail-code"></span>
+                <h3 id="detail-project-title"></h3>
+            </div>
+            <div class="project-detail-content">
+                <div class="project-detail-description">
+                    <span class="project-detail-label">REALISATION</span>
+                    <p id="detail-project-description"></p>
+                </div>
+                <div class="project-detail-description">
+                    <span class="project-detail-label">TECHNOLOGIES ET METHODES</span>
+                    <p id="detail-project-tech"></p>
+                </div>
+                <div class="project-detail-description">
+                    <span class="project-detail-label">DEFI TECHNIQUE</span>
+                    <p id="detail-project-challenge"></p>
+                </div>
+            </div>
+            <div class="project-detail-actions">
+                <button type="button" class="btn-mlnk btn-warm-primary" id="detail-open-gallery">
+                    <span class="btn-text">Voir la galerie</span>
+                    <span class="btn-indicator">⊞</span>
+                </button>
+                <a href="https://github.com/MahelMecherfi" target="_blank" rel="noopener"
+                    class="btn-mlnk btn-warm-ghost">
+                    <span class="btn-text">GitHub</span>
+                    <span class="btn-indicator">↗</span>
+                </a>
             </div>
         </div>
     </div>
