@@ -80,6 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
             challenge: "Réduire le gaspillage tout en proposant un produit ergonomique, robuste, accessible et compatible avec plusieurs formats.",
             items: [
                 { type: 'image', src: 'content/KICKSTARTER.png', caption: 'Première vue du projet Paste Scraper sur Kickstarter' },
+                { type: 'image', src: 'content/KICKSTARTER2.png', caption: 'Visuel complémentaire du projet Paste Scraper' },
                 { type: 'image', src: 'content/kickstarter1.png', caption: 'Prototype fonctionnel de l\'outil d\'extraction anti-gaspillage' },
                 { type: 'image', src: 'content/kickstarter2.png', caption: 'Conception circulaire, ergonomie d\'usage et packaging Kickstarter' }
             ]
