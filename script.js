@@ -67,6 +67,8 @@ document.addEventListener('DOMContentLoaded', () => {
             tech: "Unity 3D • C# • animation • gestion d'environnement • audio",
             challenge: "Créer une boucle de jeu lisible avec des cycles dynamiques, des ennemis nocturnes et une atmosphère cohérente.",
             items: [
+                { type: 'image', src: 'content/unity1.png', caption: 'Première vue du projet Unity : environnement insulaire' },
+                { type: 'image', src: 'content/unity2.png', caption: 'Deuxième vue du projet Unity : ambiance et environnement' },
                 { type: 'image', src: 'content/unity_hbb1.png', caption: 'Environnement insulaire sous Unity : atmosphère crépusculaire et feu de camp' },
                 { type: 'image', src: 'content/unity_hbb2.png', caption: 'Cycle nocturne dynamique : créatures hostiles et gestion de survie' }
             ]
@@ -77,6 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
             tech: "Conception produit • prototypage • matériaux durables • identité visuelle",
             challenge: "Réduire le gaspillage tout en proposant un produit ergonomique, robuste, accessible et compatible avec plusieurs formats.",
             items: [
+                { type: 'image', src: 'content/KICKSTARTER.png', caption: 'Première vue du projet Paste Scraper sur Kickstarter' },
                 { type: 'image', src: 'content/kickstarter1.png', caption: 'Prototype fonctionnel de l\'outil d\'extraction anti-gaspillage' },
                 { type: 'image', src: 'content/kickstarter2.png', caption: 'Conception circulaire, ergonomie d\'usage et packaging Kickstarter' }
             ]
