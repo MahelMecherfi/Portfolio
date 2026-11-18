@@ -33,14 +33,15 @@ document.addEventListener('DOMContentLoaded', () => {
             tech: "IA générative • HTML/CSS/JavaScript • design UI/UX • storytelling",
             challenge: "Structurer le contenu sémantique des rêves puis adapter une génération visuelle cohérente aux émotions et motifs récurrents.",
             items: [
-                { type: 'image', src: 'content/Dreamlog.png', caption: 'Interface d\'accueil de DreamLog : exploration narrative et génération IA' },
+                { type: 'image', src: 'content/dreamlog4 (2).png', caption: 'Image de couverture du projet DreamLog' },
                 { type: 'video', src: 'content/videodreamlog.mp4', caption: 'Démonstration vidéo du pipeline de génération d\'images d\'après le récit' },
                 { type: 'image', src: 'content/dreamlog1.png', caption: 'Analyse émotionnelle et sémantique du texte de rêve' },
                 { type: 'image', src: 'content/dreamlog2.png', caption: 'Visualisation générée par IA et signature visuelle du récit' },
                 { type: 'image', src: 'content/dreamlog3.png', caption: 'Cartographie des motifs récurrents et métaphores oniriques' },
-                { type: 'image', src: 'content/dreamlog4.png', caption: 'Tableau de bord introspectif et historique chronologique' },
                 { type: 'image', src: 'content/dreamlog5.png', caption: 'Storytelling immersif généré par IA multimodale' },
-                { type: 'image', src: 'content/dreamlog6.png', caption: 'Design System, typographies et composants UI' }
+                { type: 'image', src: 'content/dreamlog6.png', caption: 'Design System, typographies et composants UI' },
+                { type: 'image', src: 'content/dreamlog7.png', caption: 'Exploration visuelle supplémentaire du projet DreamLog' },
+                { type: 'image', src: 'content/dreamlog8.png', caption: 'Interface ou visualisation complémentaire du projet DreamLog' }
             ]
         },
         brightsign: {
