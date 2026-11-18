@@ -229,7 +229,7 @@
                                     alt="Mur interactif Musée Pouilly-Fumé : Vue d'ensemble" class="project-image"
                                     loading="lazy">
                                 <div class="media-badge">
-                                    <span>Défiler la galerie [ 4 ] ↗</span>
+                                    <span>Défiler la galerie</span>
                                 </div>
                             </div>
                         </div>
@@ -262,7 +262,6 @@
                             <div class="project-actions">
                                 <button class="btn-mlnk btn-warm-primary open-gallery-btn" data-project="wall">
                                     <span class="btn-text">Explorer les visuels</span>
-                                    <span class="btn-indicator">⊞</span>
                                 </button>
                             </div>
                         </div>
@@ -278,7 +277,7 @@
                                     alt="DreamLog : Interface de journal de rêves généré par IA" class="project-image"
                                     loading="lazy">
                                 <div class="media-badge">
-                                    <span>Voir les images & vidéo [ 8 ] ↗</span>
+                                    <span>Voir les images et la vidéo</span>
                                 </div>
                             </div>
                         </div>
@@ -308,7 +307,6 @@
                             <div class="project-actions">
                                 <button class="btn-mlnk btn-warm-primary open-gallery-btn" data-project="dreamlog">
                                     <span class="btn-text">Ouvrir la galerie & vidéo</span>
-                                    <span class="btn-indicator">▶</span>
                                 </button>
                             </div>
                         </div>
@@ -324,7 +322,7 @@
                                     alt="Borne tactile interactive BrightSign au Musée Pouilly-Fumé"
                                     class="project-image" loading="lazy">
                                 <div class="media-badge">
-                                    <span>Défiler la galerie [ 4 ] ↗</span>
+                                    <span>Défiler la galerie</span>
                                 </div>
                             </div>
                         </div>
@@ -354,7 +352,6 @@
                             <div class="project-actions">
                                 <button class="btn-mlnk btn-warm-primary open-gallery-btn" data-project="brightsign">
                                     <span class="btn-text">Voir les captures</span>
-                                    <span class="btn-indicator">⊞</span>
                                 </button>
                             </div>
                         </div>
@@ -369,7 +366,7 @@
                                 <img src="content/unity_hbb1.png" alt="Environnement insulaire 3D sous Unity"
                                     class="project-image" loading="lazy">
                                 <div class="media-badge">
-                                    <span>Défiler la galerie [ 2 ] ↗</span>
+                                    <span>Défiler la galerie</span>
                                 </div>
                             </div>
                         </div>
@@ -405,7 +402,6 @@
                                 </a>
                                 <button class="btn-mlnk btn-warm-ghost open-gallery-btn" data-project="unity">
                                     <span class="btn-text">Photos</span>
-                                    <span class="btn-indicator">⊞</span>
                                 </button>
                             </div>
                         </div>
@@ -420,7 +416,7 @@
                                 <img src="content/kickstarter1.png" alt="Paste Scraper : Outil éco-responsable"
                                     class="project-image" loading="lazy">
                                 <div class="media-badge">
-                                    <span>Défiler la galerie [ 2 ] ↗</span>
+                                    <span>Défiler la galerie</span>
                                 </div>
                             </div>
                         </div>
@@ -457,7 +453,6 @@
                                 </a>
                                 <button class="btn-mlnk btn-warm-ghost open-gallery-btn" data-project="kickstarter">
                                     <span class="btn-text">Photos</span>
-                                    <span class="btn-indicator">⊞</span>
                                 </button>
                             </div>
                         </div>
@@ -531,8 +526,6 @@
                 </div>
 
                 <div class="modal-controls">
-                    <button id="modal-prev-btn" class="modal-nav-btn" aria-label="Image précédente">←</button>
-                    <button id="modal-next-btn" class="modal-nav-btn" aria-label="Image suivante">→</button>
                     <button id="modal-close-btn" class="modal-nav-btn btn-close-modal" aria-label="Fermer">✕</button>
                 </div>
             </div>
@@ -544,30 +537,6 @@
                         style="display: none;"></video>
                 </div>
 
-                <div class="modal-hint">
-                    CLIQUEZ POUR DÉFILER →
-                </div>
-            </div>
-
-            <div class="modal-details" id="modal-details">
-                <div class="modal-details-main">
-                    <span class="modal-details-label">RÉALISATION</span>
-                    <p id="modal-project-description"></p>
-                </div>
-                <div class="modal-details-grid">
-                    <div>
-                        <span class="modal-details-label">TECHNIQUES</span>
-                        <p id="modal-project-tech"></p>
-                    </div>
-                    <div>
-                        <span class="modal-details-label">DÉFI</span>
-                        <p id="modal-project-challenge"></p>
-                    </div>
-                </div>
-                <a href="https://github.com/MahelMecherfi" target="_blank" rel="noopener"
-                    class="modal-github-link">
-                    Voir mon GitHub ↗
-                </a>
             </div>
 
             <div class="modal-footer">
@@ -582,7 +551,6 @@
         <div class="project-detail-window">
             <button type="button" class="project-detail-close" id="detail-close-btn" aria-label="Fermer">✕</button>
             <div class="project-detail-heading">
-                <span id="detail-project-code" class="project-detail-code"></span>
                 <h3 id="detail-project-title"></h3>
             </div>
             <div class="project-detail-content">
@@ -602,13 +570,7 @@
             <div class="project-detail-actions">
                 <button type="button" class="btn-mlnk btn-warm-primary" id="detail-open-gallery">
                     <span class="btn-text">Voir la galerie</span>
-                    <span class="btn-indicator">⊞</span>
                 </button>
-                <a href="https://github.com/MahelMecherfi" target="_blank" rel="noopener"
-                    class="btn-mlnk btn-warm-ghost">
-                    <span class="btn-text">GitHub</span>
-                    <span class="btn-indicator">↗</span>
-                </a>
             </div>
         </div>
     </div>

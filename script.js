@@ -1,5 +1,5 @@
 /**
- * MAHEL MECHERFI — PORTFOLIO INTERACTIONS SCRIPT
+ * MAHEL MECHERFI : SCRIPT DES INTERACTIONS DU PORTFOLIO
  * Implements:
  * 1. Yaros.me Scroll-driven text reveal
  * 2. Readymag Photo stack gallery modal with click-to-advance & video support
@@ -17,7 +17,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const projectsData = {
         wall: {
             title: "Mur Interactif Musée Pouilly-Fumé",
-            code: "EXP_01",
             description: "Mur de 12 m² combinant scénographie viticole, simulation physique et diffusion audiovisuelle synchronisée.",
             tech: "Unity • C# • OSC • MadMapper • système de particules",
             challenge: "Synchroniser les interactions tactiles, les bulles virtuelles, les visuels projetés et le son dans une expérience temps réel stable.",
@@ -29,8 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
             ]
         },
         dreamlog: {
-            title: "DreamLog — Journal Onirique Augmenté & IA",
-            code: "EXP_02",
+            title: "DreamLog : Journal Onirique Augmenté et IA",
             description: "Application de journal intime transformant les récits écrits en visualisations métaphoriques et analyses oniriques.",
             tech: "IA générative • HTML/CSS/JavaScript • design UI/UX • storytelling",
             challenge: "Structurer le contenu sémantique des rêves puis adapter une génération visuelle cohérente aux émotions et motifs récurrents.",
@@ -46,8 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
             ]
         },
         brightsign: {
-            title: "Borne Tactile BrightSign — Musée de Pouilly",
-            code: "EXP_03",
+            title: "Borne Tactile BrightSign : Musée de Pouilly",
             description: "Application muséale bilingue donnant accès à neuf interviews de vignerons depuis une borne tactile autonome.",
             tech: "HTML5 • CSS • JavaScript • Figma • BrightSign LS425",
             challenge: "Garantir une navigation fluide, un affichage plein écran fiable et une lecture vidéo adaptée au public du musée.",
@@ -59,8 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
             ]
         },
         unity: {
-            title: "Monde Interactif Immersif — Survie HCI Unity",
-            code: "EXP_04",
+            title: "Monde Interactif Immersif : Survie HCI Unity",
             description: "Expérience de survie en 3D où la gestion du feu et du cycle jour/nuit conditionne l'engagement du joueur.",
             tech: "Unity 3D • C# • animation • gestion d'environnement • audio",
             challenge: "Créer une boucle de jeu lisible avec des cycles dynamiques, des ennemis nocturnes et une atmosphère cohérente.",
@@ -70,8 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
             ]
         },
         kickstarter: {
-            title: "Paste Scraper — Produit Eco-Design & Kickstarter",
-            code: "EXP_05",
+            title: "Paste Scraper : Produit Éco-conçu et Kickstarter",
             description: "Outil éco-conçu destiné à récupérer intégralement le contenu des tubes et contenants semi-rigides.",
             tech: "Conception produit • prototypage • matériaux durables • identité visuelle",
             challenge: "Réduire le gaspillage tout en proposant un produit ergonomique, robuste, accessible et compatible avec plusieurs formats.",
@@ -322,7 +317,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 projectImage.style.transform = `scale(1.05) translate(0px, 0px)`;
             }
             if (mediaBadge) {
-                mediaBadge.innerHTML = `<span>Défiler la galerie [ ${imageList.length} ] ↗</span>`;
+                mediaBadge.innerHTML = `<span>Défiler la galerie</span>`;
             }
             tiltWrapper.style.transform = `perspective(1100px) rotateX(0deg) rotateY(0deg)`;
         });
@@ -398,7 +393,6 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!project || !detailModal) return;
 
         currentProjectId = projectId;
-        document.getElementById('detail-project-code').textContent = project.code;
         document.getElementById('detail-project-title').textContent = project.title;
         document.getElementById('detail-project-description').textContent = project.description;
         document.getElementById('detail-project-tech').textContent = project.tech;
@@ -425,10 +419,7 @@ document.addEventListener('DOMContentLoaded', () => {
         currentMediaIndex = startIndex;
 
         modalTitle.textContent = project.title;
-        modalIdx.textContent = `[ ${project.code} ]`;
-        modalProjectDescription.textContent = project.description;
-        modalProjectTech.textContent = project.tech;
-        modalProjectChallenge.textContent = project.challenge;
+        modalIdx.textContent = '';
 
         renderThumbnails(project);
         showMedia(currentMediaIndex);
@@ -478,16 +469,6 @@ document.addEventListener('DOMContentLoaded', () => {
             modalActiveImg.style.display = 'block';
             modalActiveImg.src = media.src;
             modalActiveImg.alt = media.caption || project.title;
-        }
-
-        // Update hint text for touch screens vs mouse
-        const modalHint = document.querySelector('.modal-hint');
-        if (modalHint) {
-            if ('ontouchstart' in window || navigator.maxTouchPoints > 0) {
-                modalHint.textContent = 'GLISSER OU TOUCHER POUR DÉFILER →';
-            } else {
-                modalHint.textContent = 'CLIQUEZ POUR DÉFILER →';
-            }
         }
 
         // Update active thumbnail
