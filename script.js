@@ -16,8 +16,11 @@ document.addEventListener('DOMContentLoaded', () => {
        ========================================================================== */
     const projectsData = {
         wall: {
-            title: "Mur Interactif — Musée Pouilly-Fumé",
+            title: "Mur Interactif Musée Pouilly-Fumé",
             code: "EXP_01",
+            description: "Mur de 12 m² combinant scénographie viticole, simulation physique et diffusion audiovisuelle synchronisée.",
+            tech: "Unity • C# • OSC • MadMapper • système de particules",
+            challenge: "Synchroniser les interactions tactiles, les bulles virtuelles, les visuels projetés et le son dans une expérience temps réel stable.",
             items: [
                 { type: 'image', src: 'content/interactive_wall.png', caption: 'Rendu 3D du mur interactif (2 × 6 m) et simulations de bulles en C#' },
                 { type: 'image', src: 'content/interactivewall1.png', caption: 'Installation scénographique et gestion dynamique des 4 saisons viticoles' },
@@ -28,6 +31,9 @@ document.addEventListener('DOMContentLoaded', () => {
         dreamlog: {
             title: "DreamLog — Journal Onirique Augmenté & IA",
             code: "EXP_02",
+            description: "Application de journal intime transformant les récits écrits en visualisations métaphoriques et analyses oniriques.",
+            tech: "IA générative • HTML/CSS/JavaScript • design UI/UX • storytelling",
+            challenge: "Structurer le contenu sémantique des rêves puis adapter une génération visuelle cohérente aux émotions et motifs récurrents.",
             items: [
                 { type: 'image', src: 'content/Dreamlog.png', caption: 'Interface d\'accueil de DreamLog : exploration narrative et génération IA' },
                 { type: 'video', src: 'content/videodreamlog.mp4', caption: 'Démonstration vidéo du pipeline de génération d\'images d\'après le récit' },
@@ -42,6 +48,9 @@ document.addEventListener('DOMContentLoaded', () => {
         brightsign: {
             title: "Borne Tactile BrightSign — Musée de Pouilly",
             code: "EXP_03",
+            description: "Application muséale bilingue donnant accès à neuf interviews de vignerons depuis une borne tactile autonome.",
+            tech: "HTML5 • CSS • JavaScript • Figma • BrightSign LS425",
+            challenge: "Garantir une navigation fluide, un affichage plein écran fiable et une lecture vidéo adaptée au public du musée.",
             items: [
                 { type: 'image', src: 'content/brightsign.png', caption: 'Borne tactile interactive installée au cœur du parcours muséal' },
                 { type: 'image', src: 'content/application_vignerons.png', caption: 'Écran de sélection des 9 vignerons interviewés (Interface Web embarquée)' },
@@ -52,6 +61,9 @@ document.addEventListener('DOMContentLoaded', () => {
         unity: {
             title: "Monde Interactif Immersif — Survie HCI Unity",
             code: "EXP_04",
+            description: "Expérience de survie en 3D où la gestion du feu et du cycle jour/nuit conditionne l'engagement du joueur.",
+            tech: "Unity 3D • C# • animation • gestion d'environnement • audio",
+            challenge: "Créer une boucle de jeu lisible avec des cycles dynamiques, des ennemis nocturnes et une atmosphère cohérente.",
             items: [
                 { type: 'image', src: 'content/unity_hbb1.png', caption: 'Environnement insulaire sous Unity : atmosphère crépusculaire et feu de camp' },
                 { type: 'image', src: 'content/unity_hbb2.png', caption: 'Cycle nocturne dynamique : créatures hostiles et gestion de survie' }
@@ -60,6 +72,9 @@ document.addEventListener('DOMContentLoaded', () => {
         kickstarter: {
             title: "Paste Scraper — Produit Eco-Design & Kickstarter",
             code: "EXP_05",
+            description: "Outil éco-conçu destiné à récupérer intégralement le contenu des tubes et contenants semi-rigides.",
+            tech: "Conception produit • prototypage • matériaux durables • identité visuelle",
+            challenge: "Réduire le gaspillage tout en proposant un produit ergonomique, robuste, accessible et compatible avec plusieurs formats.",
             items: [
                 { type: 'image', src: 'content/kickstarter1.png', caption: 'Prototype fonctionnel de l\'outil d\'extraction anti-gaspillage' },
                 { type: 'image', src: 'content/kickstarter2.png', caption: 'Conception circulaire, ergonomie d\'usage et packaging Kickstarter' }
@@ -367,6 +382,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const modalActiveImg = document.getElementById('modal-active-img');
     const modalActiveVideo = document.getElementById('modal-active-video');
     const modalThumbnails = document.getElementById('modal-thumbnails');
+    const modalProjectDescription = document.getElementById('modal-project-description');
+    const modalProjectTech = document.getElementById('modal-project-tech');
+    const modalProjectChallenge = document.getElementById('modal-project-challenge');
 
     let currentProjectId = null;
     let currentMediaIndex = 0;
@@ -380,6 +398,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
         modalTitle.textContent = project.title;
         modalIdx.textContent = `[ ${project.code} ]`;
+        modalProjectDescription.textContent = project.description;
+        modalProjectTech.textContent = project.tech;
+        modalProjectChallenge.textContent = project.challenge;
 
         renderThumbnails(project);
         showMedia(currentMediaIndex);
@@ -490,6 +511,26 @@ document.addEventListener('DOMContentLoaded', () => {
             if (projectId && projectsData[projectId]) {
                 openGallery(projectId, 0);
             }
+        });
+    });
+
+    // Toute la carte ouvre les détails techniques et la galerie du projet.
+    document.querySelectorAll('.project-entry').forEach(card => {
+        card.setAttribute('tabindex', '0');
+        card.setAttribute('role', 'button');
+        card.setAttribute('aria-label', 'Voir les détails techniques et la galerie du projet');
+
+        card.addEventListener('click', (e) => {
+            if (e.target.closest('a, button')) return;
+            const projectId = card.getAttribute('data-project-id');
+            if (projectId && projectsData[projectId]) openGallery(projectId, 0);
+        });
+
+        card.addEventListener('keydown', (e) => {
+            if (e.key !== 'Enter' && e.key !== ' ') return;
+            e.preventDefault();
+            const projectId = card.getAttribute('data-project-id');
+            if (projectId && projectsData[projectId]) openGallery(projectId, 0);
         });
     });
 

@@ -681,6 +681,7 @@ button {
     padding: 2.75rem;
     box-shadow: 0 8px 28px rgba(25, 22, 20, 0.04);
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
 }
 
 .project-entry:hover {
@@ -1194,6 +1195,54 @@ button {
 .modal-footer {
     padding-top: 1rem;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.modal-details {
+    display: grid;
+    grid-template-columns: minmax(180px, 1.15fr) minmax(260px, 1fr) auto;
+    align-items: start;
+    gap: 1.25rem;
+    padding: 0.75rem 0 0.9rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.modal-details-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.modal-details-label {
+    display: block;
+    margin-bottom: 0.35rem;
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.08em;
+    color: var(--warm-peach);
+}
+
+.modal-details p {
+    margin: 0;
+    font-size: 0.72rem;
+    line-height: 1.45;
+    color: rgba(255, 255, 255, 0.78);
+}
+
+.modal-github-link {
+    align-self: center;
+    white-space: nowrap;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 6px;
+    padding: 0.55rem 0.7rem;
+    transition: all 0.2s ease;
+}
+
+.modal-github-link:hover {
+    border-color: var(--warm-peach);
+    color: var(--warm-peach);
 }
 
 .modal-thumbnails-track {
@@ -1772,6 +1821,7 @@ body {
         padding: 0.85rem;
         border-radius: 14px;
         gap: 0.5rem;
+        overflow-y: auto;
     }
 
     .modal-header {
@@ -1834,6 +1884,25 @@ body {
 
     .modal-footer {
         padding-top: 0.6rem;
+    }
+
+    .modal-details {
+        grid-template-columns: 1fr;
+        gap: 0.65rem;
+        padding: 0.65rem 0;
+    }
+
+    .modal-details-grid {
+        gap: 0.65rem;
+    }
+
+    .modal-details p {
+        font-size: 0.68rem;
+    }
+
+    .modal-github-link {
+        justify-self: start;
+        text-align: center;
     }
 
     .modal-thumbnails-track {
