@@ -21,6 +21,9 @@ document.addEventListener('DOMContentLoaded', () => {
             tech: "Unity • C# • OSC • MadMapper • système de particules",
             challenge: "Synchroniser les interactions tactiles, les bulles virtuelles, les visuels projetés et le son dans une expérience temps réel stable.",
             items: [
+                { type: 'image', src: 'content/murinteractif1.png', caption: 'Première vue du mur interactif' },
+                { type: 'image', src: 'content/murinteractif2.png', caption: 'Installation et ambiance du mur interactif' },
+                { type: 'image', src: 'content/murinteractif3.png', caption: 'Vue détaillée du mur interactif' },
                 { type: 'image', src: 'content/interactive_wall.png', caption: 'Rendu 3D du mur interactif (2 × 6 m) et simulations de bulles en C#' },
                 { type: 'image', src: 'content/interactivewall1.png', caption: 'Installation scénographique et gestion dynamique des 4 saisons viticoles' },
                 { type: 'image', src: 'content/interactivewall2.png', caption: 'Interactions tactiles et synchronisation temps réel en OSC avec MadMapper' },
@@ -33,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
             tech: "IA générative • HTML/CSS/JavaScript • design UI/UX • storytelling",
             challenge: "Structurer le contenu sémantique des rêves puis adapter une génération visuelle cohérente aux émotions et motifs récurrents.",
             items: [
-                { type: 'image', src: 'content/dreamlog4 (2).png', caption: 'Image de couverture du projet DreamLog' },
+                { type: 'image', src: 'content/dreamlog4(2).png', caption: 'Image de couverture du projet DreamLog' },
                 { type: 'video', src: 'content/videodreamlog.mp4', caption: 'Démonstration vidéo du pipeline de génération d\'images d\'après le récit' },
                 { type: 'image', src: 'content/dreamlog1.png', caption: 'Analyse émotionnelle et sémantique du texte de rêve' },
                 { type: 'image', src: 'content/dreamlog2.png', caption: 'Visualisation générée par IA et signature visuelle du récit' },
@@ -50,10 +53,12 @@ document.addEventListener('DOMContentLoaded', () => {
             tech: "HTML5 • CSS • JavaScript • Figma • BrightSign LS425",
             challenge: "Garantir une navigation fluide, un affichage plein écran fiable et une lecture vidéo adaptée au public du musée.",
             items: [
-                { type: 'image', src: 'content/brightsign.png', caption: 'Borne tactile interactive installée au cœur du parcours muséal' },
-                { type: 'image', src: 'content/application_vignerons.png', caption: 'Écran de sélection des 9 vignerons interviewés (Interface Web embarquée)' },
+                { type: 'image', src: 'content/brightsign1.png', caption: 'Première vue de la borne tactile BrightSign' },
                 { type: 'image', src: 'content/brightsign2.png', caption: 'Lecteur d\'interview vidéo plein écran avec sous-titrage FR/EN' },
-                { type: 'image', src: 'content/brightsign3.png', caption: 'Détails de navigation fluide et ergonomie adaptée aux visiteurs' }
+                { type: 'image', src: 'content/brightsign3.png', caption: 'Détails de navigation fluide et ergonomie adaptée aux visiteurs' },
+                { type: 'image', src: 'content/brightsign5.png', caption: 'Vue complémentaire de la borne BrightSign' },
+                { type: 'image', src: 'content/brightsign.png', caption: 'Borne tactile interactive installée au cœur du parcours muséal' },
+                { type: 'image', src: 'content/application_vignerons.png', caption: 'Écran de sélection des 9 vignerons interviewés (Interface Web embarquée)' }
             ]
         },
         unity: {
