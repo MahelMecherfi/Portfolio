@@ -237,20 +237,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const mediaBadge = viewport.querySelector('.media-badge');
         if (!tiltWrapper) return;
 
-        const projectId = viewport.getAttribute('data-project') || viewport.getAttribute('data-project-id');
-        const project = projectsData[projectId];
-        const imageList = project ? project.items.filter(item => item.type === 'image') : [];
-
-        // Preload all project images for instant zero-latency cycling
-        imageList.forEach(item => {
-            const preload = new Image();
-            preload.src = item.src;
-        });
-
-        let hoverLoopTimer = null;
-        let hoverPhotoIdx = 0;
-        const cycleSpeed = 700; // 700ms par image au survol
-
         // Inject dynamic specular glare overlay if missing
         let glareOverlay = viewport.querySelector('.media-glare-overlay');
         if (!glareOverlay) {
@@ -259,22 +245,6 @@ document.addEventListener('DOMContentLoaded', () => {
             glareOverlay.setAttribute('aria-hidden', 'true');
             tiltWrapper.appendChild(glareOverlay);
         }
-
-        // INFINITE HOVER LOOP: toutes les autres photos défilent sans s'arrêter en boucle au survol
-        viewport.addEventListener('mouseenter', () => {
-            if (!project || imageList.length <= 1) return;
-            clearInterval(hoverLoopTimer);
-
-            hoverLoopTimer = setInterval(() => {
-                hoverPhotoIdx = (hoverPhotoIdx + 1) % imageList.length;
-                if (projectImage) {
-                    projectImage.src = imageList[hoverPhotoIdx].src;
-                }
-                if (mediaBadge) {
-                    mediaBadge.innerHTML = `<span>PHOTO ${hoverPhotoIdx + 1} / ${imageList.length} ↻</span>`;
-                }
-            }, cycleSpeed);
-        });
 
         viewport.addEventListener('mousemove', (e) => {
             if (window.innerWidth <= 768 || window.matchMedia('(pointer: coarse)').matches) return;
@@ -314,17 +284,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         viewport.addEventListener('mouseleave', () => {
-            clearInterval(hoverLoopTimer);
-            hoverPhotoIdx = 0;
-
-            // Return to cover photo
-            if (projectImage && imageList[0]) {
-                projectImage.src = imageList[0].src;
-                projectImage.style.transform = `scale(1.05) translate(0px, 0px)`;
-            }
-            if (mediaBadge) {
-                mediaBadge.innerHTML = `<span>Défiler la galerie</span>`;
-            }
+            if (projectImage) projectImage.style.transform = `scale(1.05) translate(0px, 0px)`;
             tiltWrapper.style.transform = `perspective(1100px) rotateX(0deg) rotateY(0deg)`;
         });
     });
