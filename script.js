@@ -260,7 +260,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         viewport.addEventListener('mouseenter', () => {
-            if (window.innerWidth <= 768 || window.matchMedia('(pointer: coarse)').matches) return;
+            if (window.matchMedia('(pointer: coarse)').matches) return;
             if (imageList.length <= 1 || !projectImage) return;
 
             clearInterval(hoverLoopTimer);
