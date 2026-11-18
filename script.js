@@ -237,6 +237,19 @@ document.addEventListener('DOMContentLoaded', () => {
         const mediaBadge = viewport.querySelector('.media-badge');
         if (!tiltWrapper) return;
 
+        const projectId = viewport.getAttribute('data-project') || viewport.getAttribute('data-project-id');
+        const project = projectsData[projectId];
+        const imageList = project ? project.items.filter(item => item.type === 'image') : [];
+        const defaultBadge = mediaBadge ? mediaBadge.innerHTML : '';
+        let currentPhotoIndex = imageList.findIndex(item => item.src === projectImage?.getAttribute('src'));
+        if (currentPhotoIndex < 0) currentPhotoIndex = 0;
+        let hoverLoopTimer = null;
+
+        imageList.forEach(item => {
+            const preload = new Image();
+            preload.src = item.src;
+        });
+
         // Inject dynamic specular glare overlay if missing
         let glareOverlay = viewport.querySelector('.media-glare-overlay');
         if (!glareOverlay) {
@@ -245,6 +258,20 @@ document.addEventListener('DOMContentLoaded', () => {
             glareOverlay.setAttribute('aria-hidden', 'true');
             tiltWrapper.appendChild(glareOverlay);
         }
+
+        viewport.addEventListener('mouseenter', () => {
+            if (window.innerWidth <= 768 || window.matchMedia('(pointer: coarse)').matches) return;
+            if (imageList.length <= 1 || !projectImage) return;
+
+            clearInterval(hoverLoopTimer);
+            hoverLoopTimer = setInterval(() => {
+                currentPhotoIndex = (currentPhotoIndex + 1) % imageList.length;
+                projectImage.src = imageList[currentPhotoIndex].src;
+                if (mediaBadge) {
+                    mediaBadge.textContent = `Photo ${currentPhotoIndex + 1} sur ${imageList.length}`;
+                }
+            }, 700);
+        });
 
         viewport.addEventListener('mousemove', (e) => {
             if (window.innerWidth <= 768 || window.matchMedia('(pointer: coarse)').matches) return;
@@ -284,6 +311,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         viewport.addEventListener('mouseleave', () => {
+            clearInterval(hoverLoopTimer);
+            if (mediaBadge) mediaBadge.innerHTML = defaultBadge;
             if (projectImage) projectImage.style.transform = `scale(1.05) translate(0px, 0px)`;
             tiltWrapper.style.transform = `perspective(1100px) rotateX(0deg) rotateY(0deg)`;
         });
